@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Post, Author
+from blog.models import Post, Author, Comment
 
 
 def post_list(request):
@@ -34,8 +34,10 @@ def post_by_author(request, author_id):
 
 def get_post(request, post_id):
     post = Post.objects.get(id=post_id)
+    comments = post.comment.all()
     context = {
-        'post': post
+        'post': post,
+        'comments': comments
     }
     return render(
         request,

@@ -12,7 +12,14 @@
     <p>{{ post.published_date }}</p>
     <br>
     <p>{{ post.content }}</p>
-  
+    <h3>Comments</h3>
+    {% for comment in comments %}
+      <p>
+        {{ comment.author_name }}
+        <br>
+        {{ comment.text }}
+      </p>
+    {% endfor %}
   
   </div>
 </body>
